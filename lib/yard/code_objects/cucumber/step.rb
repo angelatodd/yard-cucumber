@@ -8,14 +8,14 @@ module YARD::CodeObjects::Cucumber
                   :scenario,
                   :table,
                   :text,
-                  :transforms,
+                  :placeholders,
                   :value
 
     def initialize(namespace, name)
       super(namespace, name.to_s.strip)
       @comments = @definition = @description = @keyword = @table = @text = @value = nil
       @examples = {}
-      @transforms = []
+      @placeholders = []
     end
 
     def has_table?
@@ -31,11 +31,16 @@ module YARD::CodeObjects::Cucumber
 
       unless stepdef.steps.map(&:files).include?(files)
         stepdef.steps << self
+
+        stepdef.placeholders.each do |placeholder|
+          placeholders << placeholder
+          placeholder.steps << self
+        end
       end
     end
 
     def transformed?
-      !@transforms.empty?
+      !@placeholders.empty?
     end
   end
 end

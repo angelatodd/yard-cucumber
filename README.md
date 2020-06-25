@@ -1,9 +1,9 @@
-# YARD-Cucumber: A Requirements Documentation Tool
+# YARD-Turnip: A Requirements Documentation Tool
 
 ## Synopsis
 
-YARD-Cucumber (formerly Cucumber-In-The-Yard) is a YARD extension that processes
-Cucumber features, scenarios, steps, tags, step definitions, and even transforms
+YARD-Turnip (forked from YARD-Cucumber) is a YARD extension that processes
+Gherkin features, scenarios, steps and tags with step definitions and placeholders written using Turnip
 to provide documentation similar to what you expect to how YARD displays
 classes, methods and constants.This tools bridges the gap of having feature
 files found in your source code and true documentation that your team, product
@@ -43,16 +43,16 @@ The implemented example has been deployed at [http://burtlo.github.io/yard-cucum
 
 ## Installation
 
-YARD-Cucumber requires the following gems installed:
+YARD-Turnip requires the following gems installed:
 
 Gherkin 2.2.9 - http://cukes.info
 Cucumber 0.7.5 - http://cukes.info
 YARD 0.8.1 - http://yardoc.org
 
-To install `yard-cucumber` use the following command:
+To install `yard-turnip` use the following command:
 
 ```bash
-$ gem install yard-cucumber
+$ gem install yard-turnip
 ```
 
 (Add `sudo` if you're installing under a POSIX system as root)
@@ -60,7 +60,7 @@ $ gem install yard-cucumber
 ## Usage
 
 YARD supports for automatically including gems with the prefix `yard-`
-as a plugin. To enable automatic loading yard-cucumber.
+as a plugin. To enable automatic loading yard-turnip.
 
 ```bash
 $ mkdir ~/.yard
@@ -98,7 +98,7 @@ elements:
   :ignored_plugins: []
   :autoload_plugins: []
   :safe_mode: false
-  :"yard-cucumber":
+  :"yard-turnip":
     menus: [ 'features', 'directories', 'tags', 'steps', 'step definitions' ]
 ivars:
   :@symbolize_value: false
@@ -106,24 +106,8 @@ ivars:
 
 By default the configuration, yaml format, that is generate by the `yard config`
 command will save a `SymbolHash`. You can still edit this file add the entry for
-`:"yard-cucumber":` and the sub-entry `menus:` which can contain all of the above
+`:"yard-turnipr":` and the sub-entry `menus:` which can contain all of the above
 mentioned menus or simply an empty array `[]` if you want no additional menus.
-
-* Step definitions in your language (Ruby 1.9.2)
-
-Again the yard configuration file you can define additional step definitions
-that can be matched.
-
-```yaml
-:"yard-cucumber":
-  language:
-    step_definitions: [ 'Given', 'When', 'Then', 'And', 'Soit', 'Etantdonné', 'Lorsque', 'Lorsqu', 'Alors', 'Et' ]
-```
-
-In this example, I have included the French step definition words alongside the
-English step definitions. Even without specifying this feature files in other
-languages are found, this provides the ability for the step definitions to match
-correctly to step definitions.
 
 * Exclude features or scenarios from yardoc
 
@@ -131,7 +115,7 @@ You can exclude any feature or scenario from the yardoc by adding a predefined t
 To define tags that will be excluded, again in yard configuration file:
 
 ```yaml
-:"yard-cucumber":
+:"yard-turnip":
   exclude_tags: [ 'exclude-yardoc', 'also-exclude-yardoc' ]
 ```
 

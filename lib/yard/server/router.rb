@@ -14,7 +14,6 @@ module YARD
       # Provide the full list of features and tags
       #
       def route_list(library, paths)
-          
         if paths && !paths.empty? && paths.first =~ /^(?:features|tags)$/
           case paths.shift
           when "features"; cmd = Commands::ListFeaturesCommand
@@ -24,7 +23,7 @@ module YARD
         else
           core_route_list(library,paths)
         end
-        
+
       end
 
     end

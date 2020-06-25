@@ -29,8 +29,8 @@ def step_definitions
   @step_definitions ||= YARD::Registry.all(:stepdefinition)
 end
 
-def transformers
-  @transformers ||= YARD::Registry.all(:steptransform)
+def placeholders
+  @placeholders ||= YARD::Registry.all(:placeholder)
 end
 
 def undefined_steps

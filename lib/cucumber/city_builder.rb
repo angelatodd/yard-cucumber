@@ -296,7 +296,7 @@ module Cucumber
           # Generate a copy of the scenario steps.
 
           @step_container.steps.each do |step|
-            step_instance = YARD::CodeObjects::Cucumber::Step.new(scenario,step.line_number) do |s|
+            step_instance = YARD::CodeObjects::Cucumber::Step.new(scenario,step.line_number.to_s) do |s|
               s.keyword = step.keyword.dup
               s.value = step.value.dup
               s.add_file(@file,step.line_number)
@@ -402,8 +402,8 @@ module Cucumber
       end
 
       def has_exclude_tags?(tags)
-        if YARD::Config.options["yard-cucumber"] and YARD::Config.options["yard-cucumber"]["exclude_tags"]
-          return true unless (YARD::Config.options["yard-cucumber"]["exclude_tags"] & tags).empty?
+        if YARD::Config.options["yard-turnip"] and YARD::Config.options["yard-turnip"]["exclude_tags"]
+          return true unless (YARD::Config.options["yard-turnip"]["exclude_tags"] & tags).empty?
         end
       end
 
