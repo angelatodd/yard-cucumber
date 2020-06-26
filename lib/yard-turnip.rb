@@ -2,7 +2,7 @@ require 'yard'
 require 'cucumber/platform'
 require 'gherkin/parser'
 
-require File.dirname(__FILE__) + "/yard-cucumber/version.rb"
+require File.dirname(__FILE__) + "/yard-turnip/version.rb"
 
 require File.dirname(__FILE__) + "/yard/code_objects/cucumber/base.rb"
 require File.dirname(__FILE__) + "/yard/code_objects/cucumber/namespace_object.rb"
@@ -16,23 +16,17 @@ require File.dirname(__FILE__) + "/cucumber/city_builder.rb"
 
 require File.dirname(__FILE__) + "/yard/code_objects/step_transformer.rb"
 require File.dirname(__FILE__) + "/yard/code_objects/step_definition.rb"
-require File.dirname(__FILE__) + "/yard/code_objects/step_transform.rb"
+require File.dirname(__FILE__) + "/yard/code_objects/placeholder.rb"
 
 require File.dirname(__FILE__) + "/yard/parser/cucumber/feature.rb"
 
 require File.dirname(__FILE__) + "/yard/handlers/cucumber/base.rb"
 require File.dirname(__FILE__) + "/yard/handlers/cucumber/feature_handler.rb"
 
-if RUBY19
-  require File.dirname(__FILE__) + "/yard/handlers/step_definition_handler.rb"
-  require File.dirname(__FILE__) + "/yard/handlers/step_transform_handler.rb"
-  require File.dirname(__FILE__) + "/yard/handlers/constant_transform_handler.rb"
-end
+require File.dirname(__FILE__) + "/yard/handlers/step_definition_handler.rb"
+require File.dirname(__FILE__) + "/yard/handlers/placeholder_handler.rb"
+require File.dirname(__FILE__) + "/yard/handlers/placeholder_match_handler.rb"
 
-require File.dirname(__FILE__) + "/yard/handlers/legacy/step_definition_handler.rb"
-require File.dirname(__FILE__) + "/yard/handlers/legacy/step_transform_handler.rb"
-
-#require File.dirname(__FILE__) + "/yard/parser/source_parser.rb"
 require File.dirname(__FILE__) + "/yard/templates/helpers/base_helper.rb"
 
 require File.dirname(__FILE__) + "/yard/server/adapter.rb"

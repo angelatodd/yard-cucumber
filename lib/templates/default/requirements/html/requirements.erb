@@ -4,7 +4,7 @@
     <a href="http://cukes.info/">Cucumber</a> |
     <a href="http://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin</a> |
     <a href="http://yardoc.org/">YARD</a> |
-    <a href="https://github.com/burtlo/yard-cucumber">YARD-Cucumber</a>
+    <a href="https://github.com/angelatodd/yard-turnip">YARD-Turnip</a>
   </div>
 
   <div class="requirements">
@@ -33,13 +33,13 @@
     <% end %>
     
     <div id="directory" style="margin-left: 40px;">
-      <div class="title"><span class="name">Step Definitions &amp; Transforms</span></div>
+      <div class="title"><span class="name">Step Definitions &amp; Placeholders</span></div>
     </div>
     <div class="steptransformers">
       <%= step_definitions.length %> 
       <a href="<%= url_for step_transformers, "step_definitions" %>">Step Definitions</a>
-      <%= transformers.length %>
-      <a href="<%= url_for step_transformers, "step_transforms" %>">Transforms</a>
+      <%= placeholders.length %>
+      <a href="<%= url_for step_transformers, "placeholders" %>">Placeholders</a>
       and <%= undefined_steps.length %>
       <a href="<%= url_for step_transformers, "undefined_steps" %>">Undefined Steps</a>
     </div>

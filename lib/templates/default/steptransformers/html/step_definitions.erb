@@ -6,7 +6,7 @@
   <a name="<%= anchor_for item %>"></a>
   <div class="title">
     <span class="pre"><%= h item.keyword %></span>
-    <span class="name"><%= item.value %></span>
+    <span class="name"><%= link_step_definition_name(item) %></span>
     <div style="float: right;">
       <a href="http://rubular.com/?regex=<%= urlencode item.value %>" target="_blank">Rubular</a>
       <%= "| PENDING" if item.pending %>
@@ -20,7 +20,7 @@
     
     <div class="meta" style="clear: right;">
       <div class="file"><%= h item.location %></div>
-    </div>
+    </div> 
     
     <!-- Comments -->
     <div>
@@ -45,10 +45,10 @@
     <!-- Matching Step Instances -->
     <% if item.steps.length > 0 %>
       <div class='showSteps'>
-        [<a href='#' class='toggleSteps' alt="<%= item.steps.length %> steps">Hide <%= item.steps.length %> steps</a>]
+        [<a href='#' class='toggleSteps' alt="<%= item.steps.length %> steps">View <%= item.steps.length %> steps</a>]
       </div>
     <% end %>
-    <div class="steps">
+    <div class="steps" style="display:none">
       <% if item.steps && !item.steps.empty? %>
       <% unique_steps(item.steps).each_with_index do |uniq_step,step_index| %>
       <div class="step <%= (step_index + 1) % 2 == 0 ? 'even' : 'odd' %>">

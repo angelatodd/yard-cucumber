@@ -11,7 +11,7 @@ module YARD::CodeObjects::Cucumber
   end
   class FeatureTags < NamespaceObject;
   end
-  class StepTransformersObject < NamespaceObject;
+  class StepTransformers < NamespaceObject;
   end
 
   class FeatureDirectory < YARD::CodeObjects::NamespaceObject
@@ -50,6 +50,6 @@ module YARD::CodeObjects::Cucumber
 
   CUCUMBER_TAG_NAMESPACE = FeatureTags.new(CUCUMBER_NAMESPACE, "tags") unless defined?(CUCUMBER_TAG_NAMESPACE)
 
-  CUCUMBER_STEPTRANSFORM_NAMESPACE = StepTransformersObject.new(CUCUMBER_NAMESPACE, "step_transformers") unless defined?(CUCUMBER_STEPTRANSFORM_NAMESPACE)
+  CUCUMBER_STEPTRANSFORM_NAMESPACE = StepTransformers.new(CUCUMBER_NAMESPACE, "step_transformers") unless defined?(CUCUMBER_STEPTRANSFORM_NAMESPACE)
 
 end

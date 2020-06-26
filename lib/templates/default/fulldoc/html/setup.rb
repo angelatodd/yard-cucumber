@@ -13,7 +13,7 @@ def init
   # Generates the requirements splash page with the 'requirements' template
   serialize(YARD::CodeObjects::Cucumber::CUCUMBER_NAMESPACE)
 
-  # Generates a page for step definitions and step transforms with the 'steptransformers' template
+  # Generates a page for step definitions and step placeholders with the 'steptransformers' template
   serialize(YARD::CodeObjects::Cucumber::CUCUMBER_STEPTRANSFORM_NAMESPACE)
 
   # Generates the tags page with the 'featuretags' template

@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + "/lib/yard-cucumber/version"
+require File.dirname(__FILE__) + "/lib/yard-turnip/version"
 
-module CucumberInTheYARD
+module YardTurnip
   def self.show_version_changes(version)
     date = ""
     changes = []
@@ -26,27 +26,26 @@ module CucumberInTheYARD
 end
 
 Gem::Specification.new do |s|
-  s.name        = 'yard-cucumber'
-  s.version     = ::CucumberInTheYARD::VERSION
-  s.authors     = ["Franklin Webber"]
+  s.name        = 'yard-tunrip'
+  s.version     = ::YardTurnip::VERSION
+  s.authors     = ["Franklin Webber", "Angela Todd"]
   s.description = %{
-    YARD-Cucumber is a YARD extension that processes Cucumber Features, Scenarios, Steps,
-    Step Definitions, Transforms, and Tags and provides a documentation interface that allows you
+    YARD-Turnip is a YARD extension that processes Gherkin Features, Scenarios, Steps and Tags
+    and Turnip Step Definitions and Placeholders and provides a documentation interface that allows you
     easily view and investigate the test suite.  This tools hopes to bridge the gap of being able
     to provide your feature descriptions to your Product Owners and Stakeholders.  }
-  s.summary     = "Cucumber Features in YARD"
-  s.email       = 'franklin.webber@gmail.com'
-  s.homepage    = "http://github.com/burtlo/yard-cucumber"
+  s.summary     = "Turnip Features in YARD"
+  s.homepage    = "http://github.com/angelatodd/yard-turnip"
   s.license     = 'MIT'
 
   s.platform    = Gem::Platform::RUBY
 
-  changes = CucumberInTheYARD.show_version_changes(::CucumberInTheYARD::VERSION)
+  changes = YardTurnip.show_version_changes(::YardTurnip::VERSION)
 
   s.post_install_message = %{
 (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::)
 
-  Thank you for installing yard-cucumber #{::CucumberInTheYARD::VERSION} / #{changes[:date]}.
+  Thank you for installing yard-turnip #{::YardTurnip::VERSION} / #{changes[:date]}.
 
   Changes:
   #{changes[:changes].collect{|change| "  #{change}"}.join("")}
