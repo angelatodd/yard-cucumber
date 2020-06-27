@@ -29,7 +29,7 @@ class YARD::Handlers::Ruby::StepDefinitionHandler < YARD::Handlers::Ruby::Base
   end
 
   def pending_keyword
-    "pending"
+    "skip"
   end
 
   def pending_command_statement?(line)

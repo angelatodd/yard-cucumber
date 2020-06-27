@@ -5,6 +5,7 @@ step "that the product, named ':product', is a valid product" do
 end
 
 step "the customer has purchased the product" do
+  skip # pending step
 end
 
 step "I expect the customer to be a member of the ':product_type' group" do
