@@ -11,18 +11,15 @@ module YARD::CodeObjects
       unless @processed
         @placeholders = []
         @processed = true
-        matched_placeholders = placeholders_from_value
         @value = Regexp.escape(@value)
+        @value.gsub!(PLACEHOLDER_REGEXP) do |_|
+          find_value_for_placeholder($1)
+        end
         @value.gsub!(OPTIONAL_WORD_REGEXP) do |_|
           [$1, $2, $3].compact.map { |m| "(?:#{m})?" }.join
         end
         @value.gsub!(ALTERNATIVE_WORD_REGEXP) do |_|
           "(?:#{$1}#{$2.tr('/', '|')})"
-        end
-        matched_placeholders.each do |placeholder|
-          @value.gsub!(Regexp.new(placeholder)) do |_|
-            find_value_for_placeholder(placeholder)
-          end
         end
       end
       @value
@@ -30,14 +27,6 @@ module YARD::CodeObjects
 
 
     private
-
-    # Look through the specified data for the escape pattern and return an array
-    # of those constants found. This defaults to the @value within step transformer
-    # as it is used internally, however, it can be called externally if it's
-    # needed somewhere.
-    def placeholders_from_value(data=@value)
-      data.scan(PLACEHOLDER_REGEXP).flatten.collect { |value| value.strip }
-    end
 
     #
     # Looking through all the constants in the registry and returning the value

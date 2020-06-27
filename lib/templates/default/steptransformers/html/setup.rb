@@ -66,15 +66,9 @@ def link_step_definition_name(step_definition)
     value = step_definition.literal_value.dup
 
     if step_definition.placeholders
-      matches = []
-      value.scan(/:[\w]+/) do |placeholder|
-        matches << [placeholder, Regexp.last_match.offset(0)]
-      end
-
-      matches.reverse.each_with_index do |(match, offsets),index|
-        next if match == nil
+      value.gsub!(/:[\w]+/) do |match|
         placeholder = step_definition.placeholders.find {|placeholder| placeholder.literal_value == match }
-        value[offsets.first..(offsets.last - 1)] = placeholder ? "<a href='#{url_for(placeholder)}'>#{h(match)}</a>" : "<span class='match'>#{match}</span>"
+        placeholder ? "<a href='#{url_for(placeholder)}'>#{h(match)}</a>" : "<span class='match'>#{match}</span>"
       end
     end
     value
