@@ -42,7 +42,7 @@ def undefined_steps_section
   @item_anchor_name = "undefined_steps"
   @item_type = nil
   @items = undefined_steps
-  erb(:header) + erb(:undefinedsteps)
+  erb(:header) + erb(:undefined_steps)
 end
 
 
