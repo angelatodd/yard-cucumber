@@ -402,8 +402,8 @@ module Cucumber
       end
 
       def has_exclude_tags?(tags)
-        if YARD::Config.options["yard-turnip"] and YARD::Config.options["yard-turnip"]["exclude_tags"]
-          return true unless (YARD::Config.options["yard-turnip"]["exclude_tags"] & tags).empty?
+        if YARD::Config.options["yard-gherkin-turnip"] and YARD::Config.options["yard-gherkin-turnip"]["exclude_tags"]
+          return true unless (YARD::Config.options["yard-gherkin-turnip"]["exclude_tags"] & tags).empty?
         end
       end
 

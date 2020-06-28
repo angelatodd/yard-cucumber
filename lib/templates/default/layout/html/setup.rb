@@ -3,30 +3,30 @@ def init
 end
 
 #
-# Append yard-turnip stylesheet to yard core stylesheets
+# Append yard-gherkin-turnip stylesheet to yard core stylesheets
 #
 def stylesheets
   super + %w(css/cucumber.css)
 end
 
 #
-# Append yard-turnip javascript to yard core javascripts
+# Append yard-gherkin-turnip javascript to yard core javascripts
 #
 def javascripts
   super + %w(js/cucumber.js)
 end
 
 #
-# Append yard-turnip specific menus 'features' and 'tags'
+# Append yard-gherkin-turnip specific menus 'features' and 'tags'
 #
 # 'features' and 'tags' are enabled by default.
 #
 # 'step definitions' and 'steps' may be enabled by setting up a value in
 # yard configuration file '~/.yard/config'
 #
-# @example `~/.yard.config`
+# @example `~/.yard/config`
 #
-#     yard-turnip:
+#     yard-gherkin-turnip:
 #       menus: [ 'features', 'directories', 'tags', 'step definitions', 'steps' ]
 #
 def menu_lists
@@ -41,8 +41,8 @@ def current_menu_lists
   @current_menu_lists ||= begin
     menus = [ "features", "tags" ]
 
-    if YARD::Config.options["yard-turnip"] and YARD::Config.options["yard-turnip"]["menus"]
-      menus = YARD::Config.options["yard-turnip"]["menus"]
+    if YARD::Config.options["yard-gherkin-turnip"] and YARD::Config.options["yard-gherkin-turnip"]["menus"]
+      menus = YARD::Config.options["yard-gherkin-turnip"]["menus"]
     end
 
     menus
@@ -67,7 +67,7 @@ end
 # @note This method overrides YARD's default layout template's layout method.
 #
 # The existing YARD layout method generates the url for the nav menu on the left
-# side. For YARD-Turnip objects this will default to the class_list.html.
+# side. For YARD-Gherkin-Turnip objects this will default to the class_list.html.
 # which is not what we want for features, tags, etc.
 #
 # So we override this method and put in some additional logic to figure out the
@@ -123,7 +123,7 @@ def rewrite_nav_url(nav_url)
     nav_url.gsub('class_list.html','tag_list.html')
   elsif object.is_a?(YARD::CodeObjects::Cucumber::Step) && current_menu_lists.include?('steps')
     nav_url.gsub('class_list.html','step_list.html')
-  elsif object.is_a?(YARD::CodeObjects::Cucumber::StepTransformers) && current_menu_lists.include?('step definitions')
+  elsif object.is_a?(YARD::CodeObjects::Cucumber::StepTransformer) && current_menu_lists.include?('step definitions')
     nav_url.gsub('class_list.html','stepdefinition_list.html')
   else
     nav_url

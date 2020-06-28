@@ -1,6 +1,6 @@
 === 1.0.0 / 2020-06-28
 
-* Forked from yard-cucumber and renamed yard-turnip
+* Forked from yard-cucumber and renamed yard-gherkin-turnip
 * Support added for Turnip `step` and `placeholder` definitions
 
 === 4.0.0 / 2018-02-25

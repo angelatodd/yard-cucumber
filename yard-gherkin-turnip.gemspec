@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/lib/yard-turnip/version"
+require File.dirname(__FILE__) + "/lib/yard-gherkin-turnip/version"
 
 module YardTurnip
   def self.show_version_changes(version)
@@ -26,16 +26,16 @@ module YardTurnip
 end
 
 Gem::Specification.new do |s|
-  s.name        = 'yard-turnip'
+  s.name        = 'yard-gherkin-turnip'
   s.version     = ::YardTurnip::VERSION
   s.authors     = ["Franklin Webber", "Angela Todd"]
   s.description = %{
-    YARD-Turnip is a YARD extension that processes Gherkin Features, Scenarios, Steps and Tags
+    YARD-Gherkin-Turnip is a YARD extension that processes Gherkin Features, Scenarios, Steps and Tags
     and Turnip Step Definitions and Placeholders and provides a documentation interface that allows you
     easily view and investigate the test suite.  This tools hopes to bridge the gap of being able
     to provide your feature descriptions to your Product Owners and Stakeholders.  }
   s.summary     = "Turnip Features in YARD"
-  s.homepage    = "http://github.com/angelatodd/yard-turnip"
+  s.homepage    = "http://github.com/angelatodd/yard-gherkin-turnip"
   s.license     = 'MIT'
 
   s.platform    = Gem::Platform::RUBY
@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
   s.post_install_message = %{
 (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::) (::)
 
-  Thank you for installing yard-turnip #{::YardTurnip::VERSION} / #{changes[:date]}.
+  Thank you for installing yard-gherkin-turnip #{::YardTurnip::VERSION} / #{changes[:date]}.
 
   Changes:
   #{changes[:changes].collect{|change| "  #{change}"}.join("")}
