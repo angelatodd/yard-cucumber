@@ -1,17 +1,3 @@
-<% sc = 0 %>
-<% @scenario.examples.each_with_index do |example, example_index| %>
-  <% example.data.each_with_index do |row, row_index| %>
-    <div style="display: none;" class="steps <%= "example#{example_index + 1}-#{row_index +1}" %>">
-      <% scenario = @scenario.scenarios[sc] %>
-      <% @scenario_outline = @scenario ; @scenario = scenario ; @steps = scenario.steps %>
-      <%= erb(:steps) %>
-      <% @scenario = @scenario_outline %>
-      <% sc += 1 %>
-    </div>
-  <% end %>
-<% end %>
-
-
 <div class="outline">
   
   <% if @scenario.examples? %>
@@ -49,8 +35,25 @@
       </table>
     <% end  %>
     
+    <% unless @scenario.scenarios.empty? %>
+      <% sc = 0 %>
+      <% @scenario.examples.each_with_index do |example, example_index| %>
+        <% example.data.each_with_index do |row, row_index| %>
+          <div class="keyword">Scenario <%= sc+1 %></div>
+          <br style="clear: both;"/>
+          <div style="display: none;" class="steps developer <%= "example#{example_index + 1}-#{row_index +1}" %>">
+            <% scenario = @scenario.scenarios[sc] %>
+            <% @scenario_outline = @scenario ; @scenario = scenario ; @steps = scenario.steps %>
+            <%= erb(:steps) %>
+            <% @scenario = @scenario_outline %>
+            <% sc += 1 %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   <% else %>
   <div class="keyword">No Example Table Defined</div>
   <div class="keyword suggestion developer">[!] Did you mean to create a Scenario?</div>
+  <br style="clear: both;"/>
   <% end %>
 </div>
