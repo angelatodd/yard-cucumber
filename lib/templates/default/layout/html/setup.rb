@@ -123,7 +123,7 @@ def rewrite_nav_url(nav_url)
     nav_url.gsub('class_list.html','tag_list.html')
   elsif object.is_a?(YARD::CodeObjects::Cucumber::Step) && current_menu_lists.include?('steps')
     nav_url.gsub('class_list.html','step_list.html')
-  elsif object.is_a?(YARD::CodeObjects::Cucumber::StepTransformer) && current_menu_lists.include?('step definitions')
+  elsif object.is_a?(YARD::CodeObjects::Cucumber::StepTransformers) && current_menu_lists.include?('step definitions')
     nav_url.gsub('class_list.html','stepdefinition_list.html')
   else
     nav_url
