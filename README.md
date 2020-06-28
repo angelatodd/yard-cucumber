@@ -45,9 +45,9 @@ The implemented example has been deployed at [http://burtlo.github.io/yard-cucum
 
 YARD-Turnip requires the following gems installed:
 
-Gherkin 2.2.9 - http://cukes.info
-Cucumber 0.7.5 - http://cukes.info
-YARD 0.8.1 - http://yardoc.org
+Gherkin - http://cukes.info
+YARD - http://yardoc.org
+Turnip - https://github.com/jnicklas/turnip
 
 To install `yard-turnip` use the following command:
 

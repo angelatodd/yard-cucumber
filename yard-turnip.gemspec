@@ -26,7 +26,7 @@ module YardTurnip
 end
 
 Gem::Specification.new do |s|
-  s.name        = 'yard-tunrip'
+  s.name        = 'yard-turnip'
   s.version     = ::YardTurnip::VERSION
   s.authors     = ["Franklin Webber", "Angela Todd"]
   s.description = %{

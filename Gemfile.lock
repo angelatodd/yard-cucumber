@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yard-tunrip (1.0.0.pre)
+    yard-turnip (1.0.0)
       cucumber (>= 2.0, < 4.0)
       gherkin (>= 4.0, < 6.0)
       yard (~> 0.8, >= 0.8.1)
@@ -42,7 +42,7 @@ DEPENDENCIES
   gherkin (>= 4.0, < 6.0)
   rake (~> 10)
   redcarpet
-  yard-tunrip!
+  yard-turnip!
 
 BUNDLED WITH
    2.1.4
