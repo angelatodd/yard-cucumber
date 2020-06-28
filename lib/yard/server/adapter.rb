@@ -8,9 +8,9 @@ module YARD
         alias_method :yard_setup, :setup
 
         #
-        # To provide the templates necessary for `yard-turnip` to integrate
+        # To provide the templates necessary for `yard-gherkin-turnip` to integrate
         # with YARD the adapter has to around-alias the setup method to place
-        # the `yard-turnip` server templates as the last template in the list.
+        # the `yard-gherkin-turnip` server templates as the last template in the list.
         #
         # When they are normally loaded with the plugin they cause an error with
         # the `yardoc` command. They are also not used because the YARD server

@@ -1,8 +1,8 @@
-# YARD-Turnip: A Requirements Documentation Tool
+# YARD-Gherkin-Turnip: A Requirements Documentation Tool
 
 ## Synopsis
 
-YARD-Turnip (forked from YARD-Cucumber) is a YARD extension that processes
+YARD-Gherkin-Turnip (forked from YARD-Cucumber) is a YARD extension that processes
 Gherkin features, scenarios, steps and tags with step definitions and placeholders written using Turnip
 to provide documentation similar to what you expect to how YARD displays
 classes, methods and constants.This tools bridges the gap of having feature
@@ -43,16 +43,16 @@ The implemented example has been deployed at [http://burtlo.github.io/yard-cucum
 
 ## Installation
 
-YARD-Turnip requires the following gems installed:
+YARD-Gherkin-Turnip requires the following gems installed:
 
 Gherkin - http://cukes.info
 YARD - http://yardoc.org
 Turnip - https://github.com/jnicklas/turnip
 
-To install `yard-turnip` use the following command:
+To install `yard-gherkin-turnip` use the following command:
 
 ```bash
-$ gem install yard-turnip
+$ gem install yard-gherkin-turnip
 ```
 
 (Add `sudo` if you're installing under a POSIX system as root)
@@ -60,7 +60,7 @@ $ gem install yard-turnip
 ## Usage
 
 YARD supports for automatically including gems with the prefix `yard-`
-as a plugin. To enable automatic loading yard-turnip.
+as a plugin. To enable automatic loading yard-gherkin-turnip.
 
 ```bash
 $ mkdir ~/.yard
@@ -98,7 +98,7 @@ elements:
   :ignored_plugins: []
   :autoload_plugins: []
   :safe_mode: false
-  :"yard-turnip":
+  :"yard-gherkin-turnip":
     menus: [ 'features', 'directories', 'tags', 'steps', 'step definitions' ]
 ivars:
   :@symbolize_value: false
@@ -106,7 +106,7 @@ ivars:
 
 By default the configuration, yaml format, that is generate by the `yard config`
 command will save a `SymbolHash`. You can still edit this file add the entry for
-`:"yard-turnipr":` and the sub-entry `menus:` which can contain all of the above
+`:"yard-gherkin-turnipr":` and the sub-entry `menus:` which can contain all of the above
 mentioned menus or simply an empty array `[]` if you want no additional menus.
 
 * Exclude features or scenarios from yardoc
@@ -115,7 +115,7 @@ You can exclude any feature or scenario from the yardoc by adding a predefined t
 To define tags that will be excluded, again in yard configuration file:
 
 ```yaml
-:"yard-turnip":
+:"yard-gherkin-turnip":
   exclude_tags: [ 'exclude-yardoc', 'also-exclude-yardoc' ]
 ```
 
