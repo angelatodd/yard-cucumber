@@ -163,7 +163,7 @@ end
 # This method removes the namespace from the root node, generates the class list,
 # and then adds it back into the root node.
 #
-def class_list(root = Registry.root, tree = TreeContext.new)
+def class_list(root = Registry.root, tree = nil)
   return super unless root == Registry.root
 
   cucumber_namespace = YARD::CodeObjects::Cucumber::CUCUMBER_NAMESPACE
